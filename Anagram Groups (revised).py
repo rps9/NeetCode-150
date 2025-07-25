@@ -1,3 +1,6 @@
+from typing import List
+from test_runner import test
+
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
 
@@ -14,6 +17,15 @@ class Solution:
                 word_count[tuple(char_count)] = [word]
         
 
-        return word_count.values()
+        return list(word_count.values())
 
+def main():
+    test_cases = [
+        {"args": (["eat","tea","tan","ate","nat","bat"],), "expected_result": [["bat"],["nat","tan"],["ate","eat","tea"]]}
+    ]
+
+    test(Solution().groupAnagrams, test_cases)
+
+if __name__ == "__main__":
+    main()
         
